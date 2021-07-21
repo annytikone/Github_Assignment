@@ -10,6 +10,18 @@ class UserController {
       next(err);
     }
   }
+
+  async searchGithubRepositories(req, res, next) {
+    const { repository } = req.query;
+    try {
+      const userRepoList = await userService.searchGithubRepositories(
+        repository
+      );
+      res.json(userRepoList);
+    } catch (err) {
+      next(err);
+    }
+  }
 }
 
 module.exports = new UserController();

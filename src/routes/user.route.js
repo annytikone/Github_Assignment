@@ -5,4 +5,6 @@ const router = express.Router();
 
 router.get('/', userController.getUserInfo);
 
+router.get('/repo', userController.searchGithubRepositories);
+
 module.exports = router;

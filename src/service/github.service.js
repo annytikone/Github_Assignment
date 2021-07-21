@@ -17,5 +17,12 @@ class GithubService {
     const response = await getGithubResponse(url);
     return response.data;
   }
+
+  async searchGithubRepositories(repo) {
+    const url = `${baseUrl}/search/repositories?q=${repo}`;
+
+    const response = await getGithubResponse(url);
+    return response.data.items;
+  }
 }
 module.exports = new GithubService();
